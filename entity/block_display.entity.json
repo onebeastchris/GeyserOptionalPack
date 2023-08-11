@@ -1,0 +1,55 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "geyser:block_display",
+        "min_engine_version": "1.8.0",
+        "materials": {
+          "default": "armor_stand"
+        },
+        "textures": {
+          "default": "textures/entity/armor_stand"
+        },
+        "animations": {
+          "interpolate": "animation.display.interpolate",
+          "stable": "animation.display.stable"
+        },
+        "scripts": {
+          "initialize": [
+            "v.interpolating = 0;",
+            "v.interpolation_finished = 0;",
+            "v.animation_time = 0;",
+            "v.interpolation_state = 0;",
+            "v.state_id = q.actor_property('geyser:transform_id');",
+            "v.start_interpolation = q.actor_property('geyser:start_interpolation');",
+            "v.interpolation_duration = q.actor_property('geyser:interpolation_duration');",
+            "v.rotation.x = q.actor_property('geyser:rotation_x');",
+            "v.rotation.y = q.actor_property('geyser:rotation_y');",
+            "v.rotation.z = q.actor_property('geyser:rotation_z');",
+            "v.translation.x = q.actor_property('geyser:translation_x');",
+            "v.translation.y = q.actor_property('geyser:translation_y');",
+            "v.translation.z = q.actor_property('geyser:translation_z');",
+            "v.scale.x = q.actor_property('geyser:scale_x');",
+            "v.scale.y = q.actor_property('geyser:scale_y');",
+            "v.scale.z = q.actor_property('geyser:scale_z');"
+          ],
+          "pre_animation": [
+            "v.interpolating = q.actor_property('geyser:state_id') != v.state_id || !v.interpolation_finished;",
+            "v.state_id = q.actor_property('geyser:transform_id');",
+            "(v.interpolating) ? {v.animation_time = v.animation_time + q.delta_time; v.interpolation_state = v.animation_time / v.interpolation_duration; v.interpolating = v.animation_time < v.interpolation_duration;}",
+            "v.interpolation_finished = v.interpolating;",
+            "(v.interpolation_finished) ? {v.animation_time = 0; v.interpolation_finished = 0; v.start_interpolation = q.actor_property('geyser:start_interpolation'); v.interpolation_duration = q.actor_property('geyser:interpolation_duration'); v.rotation.x = q.actor_property('geyser:rotation_x'); v.rotation.y = q.actor_property('geyser:rotation_y'); v.rotation.z = q.actor_property('geyser:rotation_z'); v.translation.x = q.actor_property('geyser:translation_x'); v.translation.y = q.actor_property('geyser:translation_y'); v.translation.z = q.actor_property('geyser:translation_z'); v.scale.x = q.actor_property('geyser:scale_x'); v.scale.y = q.actor_property('geyser:scale_y'); v.scale.z = q.actor_property('geyser:scale_z');}"
+          ],
+          "animate": [
+            {"interpolate": "v.interpolating"},
+            {"stable": "!v.interpolating"}
+          ]
+        },
+        "geometry": {
+          "default": "geometry.display"
+        },
+        "render_controllers": [ "controller.render.display" ],
+        "enable_attachables": true
+      }
+    }
+}
