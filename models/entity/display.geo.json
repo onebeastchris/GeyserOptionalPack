@@ -31,8 +31,13 @@
 					"pivot": [0, 8, 0]
 				},
 				{
-					"name": "rightItem",
-					"parent": "geyser_z",
+					"name": "rightarm",
+                    "parent": "geyser_z",
+					"pivot": [0, 8, 0]
+				},
+				{
+					"name": "rightitem",
+					"parent": "rightarm",
 					"pivot": [0, 8, 0]
 				}
 			]

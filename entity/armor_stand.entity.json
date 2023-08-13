@@ -37,10 +37,8 @@
           "v.head_scale = q.is_item_name_any('slot.armor.head', 0, 'minecraft:skull', 'minecraft:carved_pumpkin') ? 0.6992 : 1.3984;"
         ],
         "animate": [
-          {"controller.pose": "!q.is_bribed"},
-          {"controller.wiggling": "!q.is_bribed"},
-          {"geyser_pose": "q.is_bribed"},
-          {"geyser_scale": "q.is_baby"}
+            "geyser_pose",
+            {"geyser_scale": "q.property('geyser:small')"}
         ]
       },
       "geometry": {
