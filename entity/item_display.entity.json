@@ -34,23 +34,6 @@
             "v.scale.z = q.property('geyser:scale_z');"
           ],
           "pre_animation": [
-            "v.interpolating = q.property('geyser:state_id') != v.state_id || !v.interpolation_finished;",
-            "v.state_id = q.property('geyser:transform_id');",
-            "(v.interpolating) ? {v.animation_time = v.animation_time + q.delta_time; v.interpolation_state = v.animation_time / v.interpolation_duration; v.interpolating = v.animation_time < v.interpolation_duration;};",
-            "v.state_id = q.actor_property('geyser:state_id');",
-            "v.start_interpolation = q.actor_property('geyser:start_interpolation');",
-            "v.interpolation_duration = q.actor_property('geyser:interpolation_duration');",
-            "v.rotation.x = q.actor_property('geyser:rotation_x');",
-            "v.rotation.y = q.actor_property('geyser:rotation_y');",
-            "v.rotation.z = q.actor_property('geyser:rotation_z');",
-            "v.translation.x = q.actor_property('geyser:translation_x');",
-            "v.translation.y = q.actor_property('geyser:translation_y');",
-            "v.translation.z = q.actor_property('geyser:translation_z');",
-            "v.scale.x = q.actor_property('geyser:scale_x');",
-            "v.scale.y = q.actor_property('geyser:scale_y');",
-            "v.scale.z = q.actor_property('geyser:scale_z');"
-          ],
-          "pre_animation": [
             "v.interpolating = q.actor_property('geyser:state_id') != v.state_id || !v.interpolation_finished;",
             "v.state_id = q.actor_property('geyser:state_id');",
             "(v.interpolating) ? {v.animation_time = v.animation_time + q.delta_time; v.interpolation_state = v.animation_time / v.interpolation_duration; v.interpolating = v.animation_time < v.interpolation_duration;}",
